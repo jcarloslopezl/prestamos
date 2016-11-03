@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'twitter-bootstrap-rails'
+gem "font-awesome-rails"
 
 gem 'omniauth-facebook'
 
