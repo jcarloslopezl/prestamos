@@ -1,0 +1,21 @@
+<div class="page-title">
+  <div class="row">
+    <h1 class="col-xs-12 col-sm-8">
+      <i class="glyphicon glyphicon-edit page-title-icon"></i> Modificar solicitud
+    </h1>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span class="panel-title">Llene los datos que se le piden a continuación</span>
+  </div>
+  <div class="panel-body">
+
+		<%= render 'form', requisition: @requisition %>
+
+		<%= link_to 'Mostrar', @requisition %> |
+		<%= link_to 'Regresar', requisitions_path %>
+
+	</div>	
+</div>

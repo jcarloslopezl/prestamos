@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-title">
+  <div class="row">
+    <h1 class="col-xs-12 col-sm-8">
+      <i class="fa fa-folder-open-o"></i> Solicitudes de crédito
+    </h1>
+    <div class="col-xs-12 col-sm-4">
+      <div class="pull-right">        
+        <%= link_to new_requisition_path, class: "btn btn-success btn-lg btn-labeled" do %>
+          <span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>Agregar solicitud
+        <% end %>
+      </div>
+    </div>          
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span class="panel-title">Solicitudes de crédito</span>
+  </div>
+  <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Fecha</th>            
+            <th>Monto</th>
+            <th>Comentarios</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @requisitions.each do |requisition| %>
+            <tr>
+              <td><%= requisition.id %></td>
+              <td><%= requisition.created_at %></td>
+              <td><%= requisition.requested_amount %></td>
+              <td><%= requisition.comment %></td>
+              <td> 
+                <%= link_to glyph(:ok), requisition, :class => "btn btn-success btn-default btn-round" %>
+                <%= link_to glyph(:edit), edit_requisition_path(requisition), :class => "btn btn-warning btn-default btn-round" %>
+                <%= link_to glyph(:trash), requisition, method: :delete, :class => "btn btn-danger btn-default btn-round", data: { confirm: '¿Está seguro que desea eliminar el registro?' } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>

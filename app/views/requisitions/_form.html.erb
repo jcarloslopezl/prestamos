@@ -1,0 +1,110 @@
+<%= form_for(requisition) do |f| %>
+  <% if requisition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(requisition.errors.count, "error") %> prohibited this requisition from being saved:</h2>
+
+      <ul>
+      <% requisition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <%= f.label :income, "¿Ingresos mensuales?" %>
+      <%= f.text_field :income, class: "form-control" %>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <%= f.label :address_years, "¿Cuantos años tiene viviendo en su domicilio actual?" %>
+      <%= f.number_field :address_years, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <%= f.label :marital_status, "¿Estado civil?" %>
+      <%= f.select(:marital_status, options_for_select([
+            ['Soltero', 'Soltero'], 
+            ['Casado', 'Casado'],
+            ['Divorciado', 'Divorciado'],
+            ['Viudo', 'Viudo']
+            ]),{},{class: "form-control"}) %>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <%= f.label :dependents_number, "¿Cuántas personas dependen de usted?" %>
+      <%= f.number_field :dependents_number, class: "form-control" %>
+    </div>    
+  </div>
+
+
+   <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <%= f.label :requested_amount, "¿Monto que solicita?" %>
+      <%= f.number_field :requested_amount, class: "form-control" %>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <%= f.label :payment_terms, "Términos de pago" %>
+      <%= f.text_field :payment_terms, class: "form-control" %>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <%= f.label :bank, "¿Banco?" %>
+      <%= f.text_field :bank, class: "form-control" %>
+    </div>
+  </div>
+
+
+   <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <%= f.label :company_name, "¿Nombre de la empresa donde trabaja?" %>
+      <%= f.text_field :company_name, class: "form-control" %>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <%= f.label :company_phone_number, "¿Teléfono de la empresa?" %>
+      <%= f.number_field :company_phone_number, class: "form-control" %>
+    </div>    
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <%= f.label :company_position, "¿Posición en la empresa?" %>
+      <%= f.text_field :company_position, class: "form-control" %>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <%= f.label :company_years, "¿Cuantos años tiene trabajando en la empresa?" %>
+      <%= f.number_field :company_years, class: "form-control" %>
+    </div>    
+  </div>
+
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <%= f.label :has_sgmm, "¿Tiene seguro de gastos médicos mayores?" %>
+      <%= f.select(:has_sgmm, options_for_select([['Si', true], ['No', false]]),{},{class: "form-control"}) %>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <%= f.label :has_imss, "¿Tiene IMSS?" %>
+      <%= f.select(:has_imss, options_for_select([['Si', true], ['No', false]]),{},{class: "form-control"}) %>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <%= f.label :has_car, "Tiene carro?" %>
+      <%= f.select(:has_car, options_for_select([['Si', true], ['No', false]]),{},{class: "form-control"}) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.label :comment, "Comentarios" %>
+      <%= f.text_area :comment, class: "form-control" %>      
+    </div>    
+  </div>
+
+  <br/>
+  <div class="actions">
+    <%= f.submit "Guardar", class: "btn btn-lg btn-success" %>
+  </div>
+  <br/>
+<% end %>
