@@ -5,9 +5,15 @@ class User < ApplicationRecord
 	end
 
 	def self.create_user_from_omniauth(auth)
+
 		create(
+			provider: auth['provider'],
 			uid: auth['uid'],
-			name: auth['info']['name'])
+			first_name: auth['info']['first_name'],
+			second_name: auth['info']['last_name'],
+			phone_number: auth['info']['phone']
+		)
+
 	end
 	
 end
