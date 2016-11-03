@@ -1,24 +1,34 @@
-# README
+# Application Ruby on Rails 5.* that lets you create credit requisitions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The application allows you to login by Facebook with [OmniAuth Facebook](https://mkdynamic.github.io/omniauth-facebook/), manage your profile and create credit requisitions.
 
-Things you may want to cover:
+## Getting started
 
-* Ruby version
+To get started with the app, clone the repo and then install the needed gems:
 
-* System dependencies
+```
+$ bundle install
+```
 
-* Configuration
+Next, migrate the database:
 
-* Database creation
+```
+$ rails db:migrate
+```
 
-* Database initialization
+Finally, run the test suite to verify that everything is working correctly:
 
-* How to run the test suite
+```
+$ rails test
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+If the test suite passes, you'll be ready to run the app in a local server:
 
-* Deployment instructions
+```
+$ rails server
+```
 
-* ...
+
+## License
+
+The app is released under the [MIT License](http://www.opensource.org/licenses/MIT).
