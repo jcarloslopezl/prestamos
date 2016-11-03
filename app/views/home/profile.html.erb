@@ -1,2 +1,15 @@
-<h1>Home#profile</h1>
-<p>Find me in app/views/home/profile.html.erb</p>
+<h1>Actualiza tu perfil</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  <%= @user.inspect %>
+
+    <%= form_for(@user) do |f| %>
+      
+
+
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+    
+  </div>
+</div>
