@@ -12,6 +12,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :birth_state
       t.integer :phone_number
       t.string :uid
+      t.string :provider
 
       t.timestamps
     end

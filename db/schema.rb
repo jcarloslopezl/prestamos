@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20161101051725) do
     t.string   "birth_state"
     t.integer  "phone_number"
     t.string   "uid"
+    t.string   "provider"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
