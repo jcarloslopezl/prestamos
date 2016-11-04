@@ -12,40 +12,136 @@
   </div>
   <div class="panel-body">
 
-		<table class="table table-user-information">
-		  <tbody>
-		    <tr>
-		      <th>Ingresos mensuales ($):</th>
-		      <td>$<%= @requisition.income %></td>
-		    </tr>
-		    <tr>
-		      <th>Años tiene viviendo en su domicilio actual:</th>
-		      <td><%= @requisition.address_years %></td>
-		    </tr>
-		    <tr>
-		      <th>Estado civil:</th>
-		      <td><%= @requisition.marital_status %></td>
-		    </tr>
-		    <tr>
-		      <th>Personas que dependen de usted:</th>
-		      <td><%= @requisition.dependents_number %></td>
-		    </tr>
-		    <tr>
-		      <th>Monto que solicita ($):</th>
-		      <td>$<%= @requisition.requested_amount %></td>
-		    </tr>
-		    <tr>
-		      <th>Términos de pago:</th>
-		      <td><%= @requisition.payment_terms %></td>
-		    </tr>
-		    <tr>
-		      <th>Banco:</th>
-		      <td><%= @requisition.bank %></td>
-		    </tr>
-		  </tbody>
-		</table>
+		<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <span class="panel-title">Datos generales</span>
+			  </div>
+			  <div class="panel-body">
+					<table class="table">
+						<tr>
+				      <th>Monto que solicita ($):</th>
+				      <td class="text-danger"><b>$<%= @requisition.requested_amount %></b></td>
+				    </tr>
+				    <tr>
+				      <th>Términos de pago:</th>
+				      <td><%= @requisition.payment_terms %></td>
+				    </tr>
+				    <tr>
+				      <th>Banco:</th>
+				      <td><%= @requisition.bank %></td>
+				    </tr>
+				  </table>
+				</div>
+			</div>  
 
-		<%= link_to 'Modificar', edit_requisition_path(@requisition) %> |
-		<%= link_to 'Regresar', requisitions_path %>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<span class="panel-title">Datos personales</span>
+			</div>
+		  <div class="panel-body">
+				<table class="table">
+				  <tbody>
+				    <tr>
+				      <th>Ingresos mensuales ($):</th>
+				      <td>$<%= @requisition.income %></td>
+				    </tr>
+				    <tr>
+				      <th>Años tiene viviendo en su domicilio actual:</th>
+				      <td><%= @requisition.address_years %></td>
+				    </tr>
+				    <tr>
+				      <th>Estado civil:</th>
+				      <td><%= @requisition.marital_status %></td>
+				    </tr>
+				    <tr>
+				      <th>Personas que dependen de usted:</th>
+				      <td><%= @requisition.dependents_number %></td>
+				    </tr>				    
+				     <tr>
+				      <th>Tiene Seguro de gastos médicos mayores</th>
+				      <td><%= @requisition.has_sgmm %></td>
+				    </tr>
+				    <tr>
+				      <th>Tiene Imss</th>
+				      <td><%= @requisition.has_imss %></td>
+				    </tr>
+				    <tr>
+				      <th>Tiene Carro</th>
+				      <td><%= @requisition.has_car %></td>
+				    </tr>
+					</table>
+				</div>	
+			</div>
+
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <span class="panel-title">Datos de la empresa</span>
+			  </div>
+			  <div class="panel-body">
+					<table class="table">
+						<tr>
+				      <th>Nombre de la empresa donde trabaja:</th>
+				      <td><%= @requisition.company_name %></td>
+				    </tr>
+				    <tr>
+				      <th>Teléfono de la empresa:</th>
+				      <td><%= @requisition.company_phone_number %></td>
+				    </tr>
+				    <tr>
+				      <th>Posición en la empresa</th>
+				      <td><%= @requisition.company_position %></td>
+				    </tr>
+				    <tr>
+				      <th>Años trabajando en la empresa</th>
+				      <td><%= @requisition.company_years %></td>
+				    </tr>
+				  </table>
+				</div>
+			</div>  
+
+
+	
+	    <div class="panel panel-default">
+	      <div class="panel-heading">
+	        <span class="panel-title">Referencias personales 
+          <% if @requisition.references.size < 3 %>
+            <b class="text-danger">(Debe de agregar 3 referencias personales)</b>
+          <% end %>
+        </span>
+	      </div>
+	      <div class="panel-body">
+					<table class="table table-striped">
+	          <thead>
+	            <tr>
+	              <th>Primer nombre</th>
+	              <th>Segundo nombre</th>
+	              <th>Primer apellido</th>
+	              <th>Segundo apellido</th>
+	              <th>Teléfono</th>
+	              <th>Modificar</th>
+	            <tr>
+	          </thead> 
+	          <tbody>
+	            <% @requisition.references.each do |reference| %>
+	              <tr>
+	                <td><%= reference.first_name %></td>
+	                <td><%= reference.second_name %></td>
+	                <td><%= reference.first_last_name %></td>
+	                <td><%= reference.second_last_name %></td>
+	                <td><%= reference.cell_phone_number %></td>
+	                <td>
+	                  <%= link_to glyph(:edit), edit_requisition_reference_path(@requisition, reference), :class => "btn btn-warning btn-default btn-round" %>
+	                </td>
+	              </tr>
+	            <% end %>
+	          </tbody> 
+	        </table>
+				</div>
+			</div>
+			
+			<%= link_to 'Modificar', edit_requisition_path(@requisition) %> |
+			<%= link_to 'Regresar', requisitions_path %>
+		</div>
+
 	</div>
 </div>	
