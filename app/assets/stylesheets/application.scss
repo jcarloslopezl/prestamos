@@ -19,7 +19,11 @@
 @import "font-awesome";
 
 body{
-    background:url('https://s3.amazonaws.com/mercantilcb2-prod-wp-media/wp-content/uploads/2016/09/Background-Corporate_Domestic-v2.jpg');    
+    background: url('https://s3.amazonaws.com/mercantilcb2-prod-wp-media/wp-content/uploads/2016/09/Background-Corporate_Domestic-v2.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     padding:20px;
 }
 
