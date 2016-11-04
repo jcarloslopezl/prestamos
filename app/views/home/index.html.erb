@@ -1,5 +1,0 @@
-<% if current_user %>
-		Bienvenido <%= current_user.first_name %> <%= current_user.second_name %>
-<% else %>
-	<%= link_to "Iniciar sesión con Facebook", "auth/facebook" %>
-<% end %>

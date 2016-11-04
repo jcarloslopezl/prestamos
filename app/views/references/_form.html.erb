@@ -1,5 +1,5 @@
-<%= form_for(reference) do |f| %>
-  <% if reference.errors.any? %>
+<%= form_for([@requisition, @reference]) do |f| %>
+  <% if @reference.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(reference.errors.count, "error") %> prohibited this reference from being saved:</h2>
 
@@ -10,33 +10,38 @@
       </ul>
     </div>
   <% end %>
-  
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </div>
 
-  <div class="field">
-    <%= f.label :second_name %>
-    <%= f.text_field :second_name %>
-  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :first_name, "Primer nombre:" %> <small class="text-danger">*</small>
+      <%= f.text_field :first_name, class: "form-control", placeholder: "Primer nombre", :required => true %>
+    </div>
 
-  <div class="field">
-    <%= f.label :first_last_name %>
-    <%= f.text_field :first_last_name %>
-  </div>
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :second_name, "Segundo nombre:" %>
+      <%= f.text_field :second_name, class: "form-control", placeholder: "Segundo nombre" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :second_last_name %>
-    <%= f.text_field :second_last_name %>
-  </div>
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :first_last_name, "Primer apellido:" %> <small class="text-danger">*</small>
+      <%= f.text_field :first_last_name, class: "form-control", placeholder: "Primer apellido", :required => true %>
+    </div>
 
-  <div class="field">
-    <%= f.label :cell_phone_number %>
-    <%= f.text_field :cell_phone_number %>
-  </div>
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :second_last_name, "Segundo apellido:" %> <small class="text-danger">*</small>
+      <%= f.text_field :second_last_name, class: "form-control", placeholder: "Segundo apellido", :required => true %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :cell_phone_number, "Teléfono celular:" %> <small class="text-danger">*</small>
+      <%= f.text_field :cell_phone_number, class: "form-control", placeholder: "Teléfono celular", :required => true %>
+    </div>
+
+    <div class="col-xs-12 col-sm-2"><br/>     
+     <%= f.submit "Guardar", class: "btn btn-primary btn-block" %>
+    </div>
   </div>
+ 
 <% end %>
+
+<br/><br/>

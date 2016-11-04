@@ -1,5 +1,5 @@
 class RequisitionsController < ApplicationController
-  before_action :set_requisition, only: [:show, :edit, :update, :destroy]
+  before_action :set_requisition, only: [:show, :edit, :update]
   before_action :validate_user
 
   # GET /requisitions
@@ -10,7 +10,7 @@ class RequisitionsController < ApplicationController
 
   # GET /requisitions/1
   # GET /requisitions/1.json
-  def show
+  def show    
   end
 
   # GET /requisitions/new
@@ -20,6 +20,8 @@ class RequisitionsController < ApplicationController
 
   # GET /requisitions/1/edit
   def edit
+    @reference = Reference.new
+    # @references = current_user.requisitions
   end
 
   # POST /requisitions
@@ -29,7 +31,7 @@ class RequisitionsController < ApplicationController
 
     respond_to do |format|
       if @requisition.save
-        format.html { redirect_to @requisition, notice: 'Requisition was successfully created.' }
+        format.html { redirect_to @requisition, notice: 'La solicitud fue creada con éxito.' }
         format.json { render :show, status: :created, location: @requisition }
       else
         format.html { render :new }
@@ -43,7 +45,7 @@ class RequisitionsController < ApplicationController
   def update
     respond_to do |format|
       if @requisition.update(requisition_params)
-        format.html { redirect_to @requisition, notice: 'Requisition was successfully updated.' }
+        format.html { redirect_to @requisition, notice: 'La solicitud se actualizó con éxito.' }
         format.json { render :show, status: :ok, location: @requisition }
       else
         format.html { render :edit }
@@ -57,7 +59,7 @@ class RequisitionsController < ApplicationController
   def destroy
     @requisition.destroy
     respond_to do |format|
-      format.html { redirect_to requisitions_url, notice: 'Requisition was successfully destroyed.' }
+      format.html { redirect_to requisitions_url, notice: 'La solicitud se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end
@@ -67,7 +69,7 @@ class RequisitionsController < ApplicationController
       
       # Validar perfil completo    
       if current_user.first_name.nil?
-        redirect_to user_path, notice: 'Debe llenar su perfil para realizar solicitudes de crédito.'   
+        redirect_to '/profile', notice: 'Debe llenar su perfil para realizar solicitudes de crédito.'   
       end
 
     else

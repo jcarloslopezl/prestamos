@@ -14,8 +14,56 @@
 
 		<%= render 'form', requisition: @requisition %>
 
-		<%= link_to 'Mostrar', @requisition %> |
-		<%= link_to 'Regresar', requisitions_path %>
+    <div class="center-block">
+  		<%= link_to 'Mostrar', @requisition %> |
+  		<%= link_to 'Regresar', requisitions_path %>
+    </div> 
 
 	</div>	
+  
+  <br/>
+  <div class="container-fluid">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="panel-title">Referencias personales <b>(Debe de agregar 3 referencias personales)</b></span>
+      </div>
+      <div class="panel-body">
+
+        <div>
+          <% if @requisition.references.size < 3 %>
+            <%= render "references/form" %>
+          <% end if %>  
+        </div>
+          
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Primer nombre</th>
+              <th>Segundo nombre</th>
+              <th>Primer apellido</th>
+              <th>Segundo apellido</th>
+              <th>Teléfono</th>
+              <th>Modificar</th>
+            <tr>
+          </thead> 
+          <tbody>
+            <% @requisition.references.each do |reference| %>
+              <tr>
+                <td><%= reference.first_name %></td>
+                <td><%= reference.second_name %></td>
+                <td><%= reference.first_last_name %></td>
+                <td><%= reference.second_last_name %></td>
+                <td><%= reference.cell_phone_number %></td>
+                <td>
+                  <%= link_to glyph(:edit), edit_requisition_reference_path(@requisition, reference), :class => "btn btn-warning btn-default btn-round" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody> 
+        </table>              
+      </div>
+    </div>
+  </div>
+
 </div>

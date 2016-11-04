@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20161104045338) do
   enable_extension "plpgsql"
 
   create_table "references", force: :cascade do |t|
+    t.integer  "user_id"
     t.integer  "requisition_id"
     t.string   "first_name"
     t.string   "second_name"
@@ -25,6 +26,7 @@ ActiveRecord::Schema.define(version: 20161104045338) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.index ["requisition_id"], name: "index_references_on_requisition_id", using: :btree
+    t.index ["user_id"], name: "index_references_on_user_id", using: :btree
   end
 
   create_table "requisitions", force: :cascade do |t|
@@ -67,5 +69,6 @@ ActiveRecord::Schema.define(version: 20161104045338) do
   end
 
   add_foreign_key "references", "requisitions"
+  add_foreign_key "references", "users"
   add_foreign_key "requisitions", "users"
 end

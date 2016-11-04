@@ -1,6 +1,20 @@
-<h1>Editing Reference</h1>
+<div class="page-title">
+  <div class="row">
+    <h1 class="col-xs-12 col-sm-8">
+      <i class="glyphicon glyphicon-edit page-title-icon"></i> Modificar referencia
+    </h1>
+  </div>
+</div>
 
-<%= render 'form', reference: @reference %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span class="panel-title">Llene los datos que se le piden a continuación</span>
+  </div>
+  <div class="panel-body">
+		<%= render 'form', reference: @reference %>
+	</div>
+</div>
 
-<%= link_to 'Show', @reference %> |
-<%= link_to 'Back', references_path %>
+
+
+<%= link_to 'Regresar', edit_requisition_path(@requisition) %>

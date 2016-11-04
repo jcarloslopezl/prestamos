@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   # Profile
   get 'profile', to: 'users#profile'
   
-  # Resources
-  resources :references
-  resources :requisitions
+  # Resources  
+  resources :requisitions do
+    resources :references
+  end
   resources :users
 
   # Session
