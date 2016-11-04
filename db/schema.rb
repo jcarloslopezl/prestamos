@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103111258) do
+ActiveRecord::Schema.define(version: 20161104045338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "references", force: :cascade do |t|
+    t.integer  "requisition_id"
+    t.string   "first_name"
+    t.string   "second_name"
+    t.string   "first_last_name"
+    t.string   "second_last_name"
+    t.string   "cell_phone_number"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["requisition_id"], name: "index_references_on_requisition_id", using: :btree
+  end
 
   create_table "requisitions", force: :cascade do |t|
     t.integer  "user_id"
@@ -54,5 +66,6 @@ ActiveRecord::Schema.define(version: 20161103111258) do
     t.datetime "updated_at",       null: false
   end
 
+  add_foreign_key "references", "requisitions"
   add_foreign_key "requisitions", "users"
 end

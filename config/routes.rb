@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
-	# Profile
+  # Profile
   get 'profile', to: 'users#profile'
+  
+  # Resources
+  resources :references
   resources :requisitions
   resources :users
 
