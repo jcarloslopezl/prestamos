@@ -1,4 +1,3 @@
-<h1>Actualizar perfil</h1>
 <%= form_for(@user) do |f| %>
     <% if @user.errors.any? %>
         <div id="error_explanation">
@@ -11,125 +10,135 @@
           </ul>
         </div>
     <% end %>
-    <hr>
-<fieldset>
-  <legend>
-    Información de perfil <small>(Los campos con <small class="text-danger">*</small> son obligatorios) </small>
-  </legend>
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <div class="form-group">
-        <%= f.label :first_name, "Primer nombre" %> <small class="text-danger">*</small>
-        <%= f.text_field :first_name, class: "form-control", placeholder: "Primer nombre" %>
-      </div>
-    </div>   
-    <div class="col-xs-12 col-sm-6">
-      <div class="form-group">
-        <%= f.label :second_name, "Segundo nombre" %> <small class="text-danger">*</small>
-        <%= f.text_field :second_name, class: "form-control", placeholder: "Segundo nombre" %>
-      </div>
-    </div>   
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <div class="form-group">
-        <%= f.label :first_last_name, "Primer apellido" %> <small class="text-danger">*</small>
-        <%= f.text_field :first_last_name, class: "form-control", placeholder: "Primer apellido" %>
-      </div>
-    </div>   
-    <div class="col-xs-12 col-sm-6">
-      <div class="form-group">
-        <%= f.label :second_last_name, "Segundo apellido" %> <small class="text-danger">*</small>
-        <%= f.text_field :second_last_name, class: "form-control", placeholder: "Segundo apellido" %>
-      </div>
-    </div>   
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="form-group">
-        <%= f.label :birth_date, "Fecha de nacimiento" %> <small class="text-danger">*</small>
-        <%= f.date_field :birth_date, class: "form-control", placeholder: "Fecha de nacimiento" %>
-      </div>
-    </div>   
-    <div class="col-xs-12 col-sm-4">
-      <div class="form-group">
-        <%= f.label :gender, "Genero" %> <small class="text-danger">*</small>
-         <%= f.select(:gender, options_for_select([
-		        ['Masculino', 'Masculino'], 
-		        ['Femenino', 'Femenino'],		        
-		        ]), {}, {class: "form-control"}) %>
-      </div>
-    </div> 
-    <div class="col-xs-12 col-sm-4">
-      <div class="form-group">
-        <%= f.label :birth_state, "Estado de nacimiento" %> <small class="text-danger">*</small>
-        <%= f.select(:birth_state, options_for_select([
-		        ['Aguascalientes', 1], 
-		        ['Baja california', 2],
-		        ['Baja california sur', 3],
-		        ['Campeche', 4],
-		        ['Coahuila de Zaragoza', 5],
-		        ['Colima', 6],
-		        ['Chiapas', 7],      
-		        ['Chihuahua', 8],
-		        ['Ciudad de México', 9],
-		        ['Durango', 10],
-		        ['Guanajuato', 11],
-		        ['Guerrero', 12],
-		        ['Hidalgo', 13],
-		        ['Jalisco', 14],
-		        ['México', 15],
-		        ['Michoacán de Ocampo', 16],
-		        ['Morelos', 17],
-		        ['Nayarit', 18],
-		        ['Nuevo León', 19],
-		        ['Oaxaca', 20],
-		        ['Puebla', 21],
-		        ['Querétaro', 22],
-		        ['Quintana Roo', 23],
-		        ['San Luis Potosí', 24],
-		        ['Sinaloa', 25],
-		        ['Sonora', 26],
-		        ['Tabasco', 27],      
-		        ['Tamaulipas', 28],
-		        ['Tlaxcala', 29],
-		        ['Veracruz de Ignacio de la Llave', 30],
-		        ['Yucatán', 31],
-		        ['Zacatecas', 32]
-		        ]), {}, {class: "form-control"}) %>
-      </div>
-    </div>   
-  </div>
-
-	 <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="form-group">
-        <%= f.label :phone_number, "Teléfono" %> <small class="text-danger">*</small>
-        <%= f.telephone_field :phone_number, class: "form-control", placeholder: "Teléfono" %>
-      </div>
-    </div>   
-    <div class="col-xs-12 col-sm-4">
-      <div class="form-group">
-        <%= f.label :curp, "Curp" %> <small class="text-danger">*</small>
-        <%= f.text_field :curp, class: "form-control", placeholder: "Curp" %>
-      </div>
-    </div> 
-    <div class="col-xs-12 col-sm-4">
-      <div class="form-group">
-        <%= f.label :rfc, "Rfc" %> <small class="text-danger">*</small>
-        <%= f.text_field :rfc, class: "form-control", placeholder: "Rfc" %>
-      </div>
-    </div>   
-  </div>
-
  
+<div class="page-title">
+  <div class="row">
+    <h1 class="col-xs-12 col-sm-8">
+      <i class="fa fa-user"></i> Información de perfil
+    </h1>
+   </div>
+</div>    
 
-</fieldset>
-
-    <div class="actions">
-      <%= f.submit "Guardar", class: "btn btn-lg btn-success" %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span class="panel-title">Información de perfil <small>(Los campos con <small class="text-danger">*</small> son obligatorios) </small></span>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <%= f.label :first_name, "Primer nombre" %> <small class="text-danger">*</small>
+          <%= f.text_field :first_name, class: "form-control", placeholder: "Primer nombre", :required => true  %>
+        </div>
+      </div>   
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <%= f.label :second_name, "Segundo nombre" %> <small class="text-danger">*</small>
+          <%= f.text_field :second_name, class: "form-control", placeholder: "Segundo nombre" %>
+        </div>
+      </div>   
     </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <%= f.label :first_last_name, "Primer apellido" %> <small class="text-danger">*</small>
+          <%= f.text_field :first_last_name, class: "form-control", placeholder: "Primer apellido", :required => true  %>
+        </div>
+      </div>   
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <%= f.label :second_last_name, "Segundo apellido" %> <small class="text-danger">*</small>
+          <%= f.text_field :second_last_name, class: "form-control", placeholder: "Segundo apellido", :required => true  %>
+        </div>
+      </div>   
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="form-group">
+          <%= f.label :birth_date, "Fecha de nacimiento" %> <small class="text-danger">*</small>
+          <%= f.date_field :birth_date, class: "form-control", placeholder: "Fecha de nacimiento" %>
+        </div>
+      </div>   
+      <div class="col-xs-12 col-sm-4">
+        <div class="form-group">
+          <%= f.label :gender, "Genero" %> <small class="text-danger">*</small>
+           <%= f.select(:gender, options_for_select([
+  		        ['Masculino', 'Masculino'], 
+  		        ['Femenino', 'Femenino'],		        
+  		        ]), {}, {class: "form-control"}) %>
+        </div>
+      </div> 
+      <div class="col-xs-12 col-sm-4">
+        <div class="form-group">
+          <%= f.label :birth_state, "Estado de nacimiento" %> <small class="text-danger">*</small>
+          <%= f.select(:birth_state, options_for_select([
+  		        ['Aguascalientes', 1], 
+  		        ['Baja california', 2],
+  		        ['Baja california sur', 3],
+  		        ['Campeche', 4],
+  		        ['Coahuila de Zaragoza', 5],
+  		        ['Colima', 6],
+  		        ['Chiapas', 7],      
+  		        ['Chihuahua', 8],
+  		        ['Ciudad de México', 9],
+  		        ['Durango', 10],
+  		        ['Guanajuato', 11],
+  		        ['Guerrero', 12],
+  		        ['Hidalgo', 13],
+  		        ['Jalisco', 14],
+  		        ['México', 15],
+  		        ['Michoacán de Ocampo', 16],
+  		        ['Morelos', 17],
+  		        ['Nayarit', 18],
+  		        ['Nuevo León', 19],
+  		        ['Oaxaca', 20],
+  		        ['Puebla', 21],
+  		        ['Querétaro', 22],
+  		        ['Quintana Roo', 23],
+  		        ['San Luis Potosí', 24],
+  		        ['Sinaloa', 25],
+  		        ['Sonora', 26],
+  		        ['Tabasco', 27],      
+  		        ['Tamaulipas', 28],
+  		        ['Tlaxcala', 29],
+  		        ['Veracruz de Ignacio de la Llave', 30],
+  		        ['Yucatán', 31],
+  		        ['Zacatecas', 32]
+  		        ]), {}, {class: "form-control"}) %>
+        </div>
+      </div>   
+    </div>
+
+  	 <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="form-group">
+          <%= f.label :phone_number, "Teléfono" %> <small class="text-danger">*</small>
+          <%= f.telephone_field :phone_number, class: "form-control", placeholder: "Teléfono" %>
+        </div>
+      </div>   
+      <div class="col-xs-12 col-sm-4">
+        <div class="form-group">
+          <%= f.label :curp, "Curp" %> <small class="text-danger">*</small>
+          <%= f.text_field :curp, class: "form-control", placeholder: "Curp" %>
+        </div>
+      </div> 
+      <div class="col-xs-12 col-sm-4">
+        <div class="form-group">
+          <%= f.label :rfc, "Rfc" %> <small class="text-danger">*</small>
+          <%= f.text_field :rfc, class: "form-control", placeholder: "Rfc" %>
+        </div>
+      </div>   
+
+      <div class="col-xs-12 col-sm-4">
+       <div class="actions">
+        <%= f.submit "Guardar", class: "btn btn-lg btn-block btn-success" %>
+      </div>
+    </div>
+    </div>
+   </div>
+  </div>
+</div> 
+   
 <% end %>
