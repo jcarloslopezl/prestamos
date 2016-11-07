@@ -64,20 +64,6 @@ class RequisitionsController < ApplicationController
     end
   end
 
-  def validate_user
-    if current_user
-      
-      # Validar perfil completo    
-      if current_user.first_name.nil?
-        redirect_to '/profile', notice: 'Debe llenar su perfil para realizar solicitudes de crédito.'   
-      end
-
-    else
-      redirect_to root_path, notice: 'Debe iniciar sesión para poder generar solicitudes.'
-    end
-
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_requisition

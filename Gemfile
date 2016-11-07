@@ -32,6 +32,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'twitter-bootstrap-rails'
 gem "font-awesome-rails"
 
+# Devise
+gem 'devise'
 gem 'omniauth-facebook'
 
 # Use Capistrano for deployment

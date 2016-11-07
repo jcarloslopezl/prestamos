@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	before_action :set_user, except: [:destroy]
+  
 	
   def index
   end

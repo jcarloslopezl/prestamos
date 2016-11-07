@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, maximum-scale=1">
   </head>
 
   <body>
@@ -52,7 +52,10 @@
 									<div class="col-md-12">
 										Iniciar sesión via
 										<div class="social-buttons">
-											<a href="/auth/facebook" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+											<%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-fb" do %>
+							          <i class="fa fa-facebook"></i> Facebook
+							        <% end %>
+
 											<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
 										</div>
 		                                or
