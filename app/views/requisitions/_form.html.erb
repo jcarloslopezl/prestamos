@@ -18,8 +18,8 @@
       <%= f.text_field :income, class: "form-control", :required => true %>
     </div>
     <div class="col-xs-12 col-sm-6">
-      <%= f.label :address_years, "¿Cuantos años tiene viviendo en su domicilio actual?" %> <small class="text-danger">*</small>
-      <%= f.number_field :address_years, class: "form-control", :required => true %>
+      <%= f.label :address_years, "¿Cuántos años tiene viviendo en su domicilio actual?" %> <small class="text-danger">*</small>
+      <%= f.number_field :address_years, class: "form-control", min: 0, :required => true %>
     </div>
   </div>
 
@@ -32,11 +32,11 @@
             ['Casado', 'Casado'],
             ['Divorciado', 'Divorciado'],
             ['Viudo', 'Viudo']
-            ]),{},{class: "form-control"}) %>
+            ], requisition.marital_status),{},{class: "form-control"}) %>
     </div>
     <div class="col-xs-12 col-sm-6">
       <%= f.label :dependents_number, "¿Cuántas personas dependen de usted?" %> <small class="text-danger">*</small>
-      <%= f.number_field :dependents_number, class: "form-control", :required => true %>
+      <%= f.number_field :dependents_number, class: "form-control", min: 0, :required => true %>
     </div>    
   </div>
 
@@ -64,7 +64,7 @@
     </div>
     <div class="col-xs-12 col-sm-6">
       <%= f.label :company_phone_number, "¿Teléfono de la empresa?" %> <small class="text-danger">*</small>
-      <%= f.number_field :company_phone_number, class: "form-control", :required => true %>
+      <%= f.text_field :company_phone_number, class: "form-control", :required => true %>
     </div>    
   </div>
 
@@ -83,15 +83,15 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4">
       <%= f.label :has_sgmm, "¿Tiene seguro de gastos médicos mayores?" %> <small class="text-danger">*</small>
-      <%= f.select(:has_sgmm, options_for_select([['Si', true], ['No', false]]),{},{class: "form-control"}) %>
+      <%= f.select(:has_sgmm, options_for_select([['Si', true], ['No', false]], requisition.has_sgmm),{},{class: "form-control"}) %>
     </div>
     <div class="col-xs-12 col-sm-4">
       <%= f.label :has_imss, "¿Tiene IMSS?" %> <small class="text-danger">*</small>
-      <%= f.select(:has_imss, options_for_select([['Si', true], ['No', false]]),{},{class: "form-control"}) %>
+      <%= f.select(:has_imss, options_for_select([['Si', true], ['No', false]], requisition.has_imss),{},{class: "form-control"}) %>
     </div>
     <div class="col-xs-12 col-sm-4">
       <%= f.label :has_car, "Tiene carro?" %> <small class="text-danger">*</small>
-      <%= f.select(:has_car, options_for_select([['Si', true], ['No', false]]),{},{class: "form-control"}) %>
+      <%= f.select(:has_car, options_for_select([['Si', true], ['No', false]], requisition.has_car),{},{class: "form-control"}) %>
     </div>
   </div>
 

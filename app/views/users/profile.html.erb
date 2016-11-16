@@ -67,7 +67,7 @@
            <%= f.select(:gender, options_for_select([
   		        ['Masculino', 'Masculino'], 
   		        ['Femenino', 'Femenino'],		        
-  		        ]), {}, {class: "form-control"}) %>
+  		        ], @user.gender), {}, {class: "form-control"}) %>
         </div>
       </div> 
       <div class="col-xs-12 col-sm-4">
@@ -106,7 +106,7 @@
   		        ['Veracruz de Ignacio de la Llave', 30],
   		        ['Yucatán', 31],
   		        ['Zacatecas', 32]
-  		        ]), {}, {class: "form-control"}) %>
+  		        ], @user.birth_state), {}, {class: "form-control"}) %>
         </div>
       </div>   
     </div>
