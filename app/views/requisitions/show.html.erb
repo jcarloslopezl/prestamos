@@ -59,15 +59,15 @@
 				    </tr>				    
 				     <tr>
 				      <th>Tiene Seguro de gastos médicos mayores</th>
-				      <td><%= @requisition.has_sgmm %></td>
+				      <td><%= human_boolean(@requisition.has_sgmm) %></td>
 				    </tr>
 				    <tr>
 				      <th>Tiene Imss</th>
-				      <td><%= @requisition.has_imss %></td>
+				      <td><%= human_boolean(@requisition.has_imss) %></td>
 				    </tr>
 				    <tr>
 				      <th>Tiene Carro</th>
-				      <td><%= @requisition.has_car %></td>
+				      <td><%= human_boolean(@requisition.has_car) %></td>
 				    </tr>
 					</table>
 				</div>	
