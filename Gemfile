@@ -32,9 +32,13 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'twitter-bootstrap-rails'
 gem "font-awesome-rails"
 
-# Devise
+# Devise & omniauth
 gem 'devise'
+gem 'omniauth'
 gem 'omniauth-facebook'
+
+# Dotenv
+gem 'dotenv-rails', :groups => [:development, :test]
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
