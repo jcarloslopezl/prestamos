@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-	before_action :set_user, except: [:destroy]
-  
+  before_action :authenticate_user!
+  before_action :set_user, except: [:destroy]
 	
   def index
   end
@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   end
 
   def profile
-  	@user = User.find(session[:user_id])
   end
 
   def update
@@ -23,7 +22,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-  	@user = User.find(session[:user_id])
+  	@user = User.find(current_user.id)
   end
 
   def user_params
@@ -36,7 +35,8 @@ class UsersController < ApplicationController
     														 :rfc, 
     														 :gender, 
     														 :birth_state, 
-    														 :phone_number)
+    														 :phone_number,
+                                 :image)
   end
 
 end

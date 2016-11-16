@@ -1,6 +1,6 @@
 class RequisitionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_requisition, only: [:show, :edit, :update]
-  before_action :validate_user
 
   # GET /requisitions
   # GET /requisitions.json
