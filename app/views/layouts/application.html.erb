@@ -58,26 +58,28 @@
 
 											<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
 										</div>
-		                                or
-										 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+		                  o
+										 <%= form_for(:user, :url => session_path(:user)) do |f| %>
 												<div class="form-group">
-													 <label class="sr-only" for="exampleInputEmail2">Correo electrónico</label>
-													 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+													 <label class="sr-only" for="user_email">Correo electrónico</label>
+													 <%= f.email_field :email, class: "form-control", placeholder: "Correo electrónico", autofocus: true, required: true %>
 												</div>
 												<div class="form-group">
-													 <label class="sr-only" for="exampleInputPassword2">Contraseña</label>
-													 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-		                                             <div class="help-block text-right"><a href="">Olvidó su contraseña ?</a></div>
+													 <label class="sr-only" for="user_password">Contraseña</label>
+													 <%= f.password_field :password, class: "form-control", placeholder: "Contraseña", autocomplete: "off", required: true %>
+
+													 
+		                       <div class="help-block text-right"><a href="/users/password/new">¿Olvidó su contraseña?</a></div>
 												</div>
 												<div class="form-group">
-													 <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+													 <%= f.submit "Iniciar sesión", class: "btn btn-primary btn-block" %>
 												</div>
 												<div class="checkbox">
 													 <label>
-													 <input type="checkbox"> Recordarme
+													 <%= f.check_box :remember_me %> Recordarme
 													 </label>
 												</div>
-										 </form>
+										 <% end %>
 									</div>
 									<div class="bottom text-center">
 										<b><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></b>
