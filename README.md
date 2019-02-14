@@ -1,4 +1,4 @@
-# Application Ruby on Rails 5.* that lets you create credit requisitions
+# Ruby on Rails 5.* Application that lets you create credit requisitions
 
 The application allows you to login by Facebook with [OmniAuth Facebook](https://mkdynamic.github.io/omniauth-facebook/), manage your profile and create credit requisitions.
 
